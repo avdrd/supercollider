@@ -75,22 +75,27 @@ SynthDef {
 		controlIndex = 0;
 		maxLocalBufs = nil;
 	}
+
 	buildUgenGraph { arg func, rates, prependArgs;
 		var result;
 		// save/restore controls in case of *wrap
 		var saveControlNames = controlNames;
+		var controlProxies;
 
 		controlNames = nil;
 
 		prependArgs = prependArgs.asArray;
 		this.addControlsFromArgsOfFunc(func, rates, prependArgs.size);
-		result = func.valueArray(prependArgs ++ this.buildControls);
+		// at this point this.controlNames is loaded with the ControlNames for the current func
+		controlProxies = this.buildControls; // OutputProxies for the Control objects
+		NamedControl.preload(controlProxies); // this.controlNames is also used in preload
+		result = func.valueArray(prependArgs ++ controlProxies);
 
-		controlNames = saveControlNames
+		controlNames = saveControlNames;
 
 		^result
-
 	}
+
 	addControlsFromArgsOfFunc { arg func, rates, skipArgs=0;
 		var def, names, values,argNames, specs;
 

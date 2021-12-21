@@ -71,6 +71,21 @@ NamedControl {
 		^this.new(name, values, \trigger, lags, false, spec)
 	}
 
+	*preload { arg controlProxies;
+
+		this.initDict; // this also ensures buildSynthDef is valid
+
+		buildSynthDef.controlNames.do { |cno, i|
+			currentControls.put(
+				cno.name,
+				super.newCopyArgs(
+					cno.name, cno.defaultValue.asArray, cno.lag,
+					cno.rate, true, controlProxies[i]
+				)
+			)
+		}
+	}
+
 	*new { arg name, values, rate, lags, fixedLag = false, spec;
 		var res;
 

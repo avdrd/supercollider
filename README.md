@@ -3,7 +3,7 @@ Fork notice
 
 This is a modified version of SuperCollider with my own patches applied. As they are merged into this feature-central `avdrd` branch that I use for myself, the patches merged will be noted here with a brief description of their functionality.
 
-* My hot fix for supercollider#5646 (perhaps will be replaced by the official one later, although mine is less brittle.)
+* My hot fix for [#5646](https://github.com/supercollider/supercollider/issues/5645). Perhaps it will be replaced by the official fix later, although mine is less brittle.
 
 The patches are also available, as much as it is possible to separate them as such, on `topic/` branches that are merged into the `avdrd` branch, which is the default branch for this repo fork.
 

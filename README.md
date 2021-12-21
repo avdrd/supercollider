@@ -1,3 +1,14 @@
+Fork notice
+---
+
+This is a modified version of SuperCollider with my own patches applied. As they are merged into this feature-central `avdrd` branch that I use for myself, the patches merged will be noted here with a brief description of their functionality.
+
+The patches are also available, as much as it is possible to separate them as such, on `topic/` branches that are merged into the `avdrd` branch, which is the default branch for this repo fork.
+
+&nbsp;
+
+---
+
 [SuperCollider](https://supercollider.github.io/) [![Build Status](https://github.com/supercollider/supercollider/actions/workflows/actions.yml/badge.svg?branch=develop)](https://github.com/supercollider/supercollider/actions/workflows/actions.yml)
 =========================
 
